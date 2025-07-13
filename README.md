@@ -45,11 +45,9 @@ python manage.py runserver
 | Acción | Captura |
 |-------|---------|
 | Formulario para calificar libro | ![](captures/formulario_calificacion.jpg) |
-| Promedio por género Descripción: Este gráfico muestra el promedio de calificaciones que recibió cada género literario. Es útil para identificar qué tipo de libros son mejor valorados por los usuarios de la plataforma.  | ![](captures/grafico_promedio_genero.jpg.jpg) 
-| Promedio por autor | ![](captures/grafico_promedio_autor.jpg) 
-Descripción: Este gráfico representa el promedio de puntuación obtenida por cada autor en base a las calificaciones recibidas por sus libros. Permite visualizar qué autores son más populares o mejor valorados. |
-| Distribución de calificaciones | ![](captures/grafico_distribucion.jpg) 
-Descripción: Este gráfico ilustra la distribución total de calificaciones en la plataforma. Ayuda a observar la tendencia general de las puntuaciones dadas, por ejemplo, si los usuarios tienden a calificar con valores altos o bajos. |
+| Promedio por género: Este gráfico muestra el promedio de calificaciones que recibió cada género literario. Es útil para identificar qué tipo de libros son mejor valorados por los usuarios de la plataforma.  | ![](captures/grafico_promedio_genero.jpg.jpg) |
+| Promedio por autor: Este gráfico representa el promedio de puntuación obtenida por cada autor en base a las calificaciones recibidas por sus libros. Permite visualizar qué autores son más populares o mejor valorados. | ![](captures/grafico_promedio_autor.jpg) |
+| Distribución de calificaciones: Este gráfico ilustra la distribución total de calificaciones en la plataforma. Ayuda a observar la tendencia general de las puntuaciones dadas, por ejemplo, si los usuarios tienden a calificar con valores altos o bajos. | ![](captures/grafico_distribucion.jpg) |
 
 ---
 
