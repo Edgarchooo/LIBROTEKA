@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 text-white">
+  <h1 class="text-center mb-4">📚 Libros Disponibles</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for libro, similares in libros_con_similares %}
+    <div class="col">
+      <div class="card bg-dark text-white shadow rounded-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ libro.nombre }}</h5>
+          <p class="card-text">📅 {{ libro.fecha_lanzamiento }}</p>
+          <p class="card-text">👤 {{ libro.autor.nombre }}</p>
+          <p class="card-text">🎭 {{ libro.genero.nombre }}</p>
+
+          <a href="{% url 'calificar_libro' libro.id %}" class="btn btn-outline-light btn-sm mt-2">⭐ Calificar</a>
+
+          {% if libro.archivo_pdf %}
+          <a href="{{ libro.archivo_pdf.url }}" class="btn btn-outline-info btn-sm mt-2" download>📄 Descargar PDF</a>
+          {% endif %}
+
+          <div class="mt-3">
+            <strong>🔁 Libros Similares:</strong>
+            <ul class="mt-2">
+              {% for similar in similares %}
+                <li>{{ similar.nombre }}</li>
+              {% empty %}
+                <li>No hay similares.</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="{% url 'home' %}" class="btn btn-outline-light">🏠 Volver al Inicio</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4 text-center">🎯 Recomendaciones por Género</h2>
+
+<form method="post" class="text-center mb-4">
+  {% csrf_token %}
+  <select name="genero_id" class="form-select w-50 mx-auto" required>
+    <option value="" disabled selected>Seleccioná un género</option>
+    {% for genero in generos %}
+      <option value="{{ genero.id }}">{{ genero.nombre }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit" class="btn btn-outline-info mt-3"><i class="bi bi-lightbulb"></i> Ver Recomendaciones</button>
+</form>
+
+{% if resultados %}
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for libro in resultados %}
+      <div class="col">
+        <div class="card bg-secondary text-white shadow rounded-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ libro.nombre }}</h5>
+            <p>👤 {{ libro.autor.nombre }}</p>
+            <p>📅 {{ libro.fecha_lanzamiento }}</p>
+            <p>⭐ Promedio: {{ libro.promedio|floatformat:1 }} | 🧾 Calificaciones: {{ libro.cantidad }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% elif request.method == 'POST' %}
+  <div class="text-center text-warning mt-4">⚠️ No hay calificaciones en este género.</div>
+{% endif %}
+
+<div class="text-center mt-4">
+  <a href="{% url 'home' %}" class="btn btn-outline-light">🏠 Volver al Inicio</a>
+</div>
+{% endblock %}

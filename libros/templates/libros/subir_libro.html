@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">📘 Subir Nuevo Libro</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre del libro</label>
+      {{ form.nombre }}
+    </div>
+    <div class="mb-3">
+      <label for="autor" class="form-label">Autor</label>
+      {{ form.autor }}
+    </div>
+    <div class="mb-3">
+      <label for="genero" class="form-label">Género</label>
+      {{ form.genero }}
+    </div>
+    <div class="mb-3">
+      <label for="fecha_lanzamiento" class="form-label">Fecha de lanzamiento</label>
+      {{ form.fecha_lanzamiento }}
+    </div>
+    <div class="mb-3">
+    <label for="archivo_pdf" class="form-label">Archivo PDF</label>
+    {{ form.archivo_pdf }}
+</div>
+    <button type="submit" class="btn btn-dark">Guardar</button>
+  </form>
+</div>
+{% endblock %}
